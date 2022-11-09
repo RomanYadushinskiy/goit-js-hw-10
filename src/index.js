@@ -10,15 +10,12 @@ const countryInput = document.querySelector("#search-box");
 const countryList = document.querySelector(".country-list");
 const countryInfo = document.querySelector(".country-info");
 
-function clearAll() {
-  countryList.innerHTML = '';
-  countryInfo.innerHTML = '';
-};
+
 
 countryInput.addEventListener("input", debounce(onInputChange, DEBOUNCE_DELAY));
 
 function onInputChange() {
-    searchCountryName = countryInput.value.trim();
+    let searchCountryName = countryInput.value.trim();
         if (searchCountryName === '') {
             clearAll();
             return;
@@ -66,3 +63,7 @@ function createCountrieList(countries) {
     countryList.insertAdjacentHTML('beforeend', readyList);
 };
 
+function clearAll() {
+  countryList.innerHTML = '';
+  countryInfo.innerHTML = '';
+};
